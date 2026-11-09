@@ -1,0 +1,5 @@
+*.exe
+rose.png
+build/
+dist/
+*.spec

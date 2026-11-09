@@ -746,6 +746,11 @@ def run_window(args):
         H = int(min(info.current_h * 0.86, 1000)) if info.current_h > 0 else 900
         W = int(H * 0.92)
     flags = 0 if args.snapshot is not None else pygame.RESIZABLE
+    # window icon: next to the script, or unpacked beside the bundled exe
+    here = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    icon = os.path.join(here, "rose_icon.png")
+    if os.path.exists(icon):
+        pygame.display.set_icon(pygame.image.load(icon))
     screen = pygame.display.set_mode((W, H), flags)
     pygame.display.set_caption("White Roses")
 
